@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Services{% endblock %}
+{% block content %}
+
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7fafc;
+        }
+        .header-bg {
+            background-image: url("{% static 'images/laptopsale.jpg' %}");
+            background-size: cover;
+            background-position: center;
+        }
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .laptop-image {
+            width: 100%;
+            height: 200px;
+            object-fit: contain; /* Use contain to show the full image */
+            border-radius: 0.5rem;
+        }
+        .order-btn {
+            background-color: #FACC15;
+            color: #1F2937;
+            font-weight: bold;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: background-color 0.3s ease;
+        }
+        .order-btn:hover {
+            background-color: #EAB308;
+        }
+    </style>
+
+    <body class="pt-10">
+
+        <!-- Main Hero Section -->
+        <div class="header-bg relative mt-[-90px]  flex items-center justify-center text-center text-white py-24">
+            <div class="absolute inset-0 bg-gray-900 bg-opacity-50"></div>
+            <div class="relative z-10 p-4">
+                <h1 class="text-3xl md:text-5xl font-bold text-shadow">Find Your Perfect Laptop</h1>
+                <h2 class="text-xl md:text-3xl font-medium mt-2 text-shadow">Browse our selection of quality laptops</h2>
+            </div>
+        </div>
+
+        <!-- Available Laptops Section -->
+        <section class="container mx-auto p-8 my-8">
+            <h2 class="text-3xl font-bold text-white-800 border-b-2 border-yellow-500 pb-2 mb-8">Available Laptops</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                {% for laptop in laptops %}
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden transition-shadow hover:shadow-xl">
+                        <img src="{{ laptop.image.url }}" alt="{{ laptop.name }}" class="laptop-image p-4 mx-auto">
+                        <div class="p-6 text-center">
+                            <h3 class="text-xl font-semibold text-gray-800 laptop-name">{{ laptop.name }}</h3>
+                            <p class="text-gray-500 text-sm mt-1 laptop-specs">Details <br>{{ laptop.specs }}</p>
+                            <p class="text-2xl font-bold text-gray-900 mt-4 laptop-price"> Price Ksh {{ laptop.price }}</p>
+                            <a href="#" class="mt-4 inline-block bg-yellow-400 text-gray-900 font-bold py-3 px-6 rounded-full shadow hover:bg-yellow-500 transition-colors" onclick="sendWhatsAppMessage(this)" data-name="{{ laptop.name }}" data-specs="{{ laptop.specs }}" data-price="{{ laptop.price }}">Order Now</a>
+
+                    </div>
+                {% empty %}
+                    <p class="text-center text-gray-500 col-span-full">No laptops found.</p>
+                {% endfor %}
+            </div>
+        </section>
+
+        <!-- Footer Section -->
+        <footer class="bg-gray-800 text-white p-8 mt-auto">
+            <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Quick Links</h4>
+                <ul>
+                    <li><a href="{% url 'home' %}" class="hover:underline">Home</a></li>
+                    <li><a href="{% url 'services_list' %}" class="hover:underline">Services</a></li>
+                    <li><a href="{% url 'about_us' %}" class="hover:underline">About</a></li>
+                    <li><a href="{% url 'laptops_list' %}" class="hover:underline">Laptops</a></li>
+                    <li><a href="{% url 'accessories_list' %}" class="hover:underline">Accessories</a></li>
+                </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Contact Us</h4>
+                    <ul>
+                        <li><i class="fa fa-envelope mr-2"></i>info@smartfix.co.ke</li>
+                        <li><i class="fa fa-phone mr-2"></i>+254 795623377</li>
+                        <li><i class="fa fa-location-arrow mr-2"></i>Nairobi, Kenya</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Find Us</h4>
+                    <div class="flex space-x-4 text-2xl">
+                        <a href="#" class="hover:text-gray-400"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="hover:text-gray-400"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="hover:text-gray-400"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="hover:text-gray-400"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="hover:text-gray-400"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-8 pt-4 border-t border-gray-700">
+                &copy; 2025 Smartfix Technologies. All Rights Reserved.
+            </div>
+        </footer>
+
+        <script>
+            function sendWhatsAppMessage(button) {
+                const laptopName = button.getAttribute('data-name');
+                const laptopSpecs = button.getAttribute('data-specs');
+                const laptopPrice = button.getAttribute('data-price');
+                const phoneNumber = "254748773149"; 
+
+                const message = `I would like to order the following laptop:\n\n*Laptop:* ${laptopName}\n*Specs:* ${laptopSpecs}\n*Price:* Ksh ${laptopPrice}`;
+
+                const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                
+                window.open(url, '_blank');
+            }
+        </script>
+    </body>
+{% endblock %}

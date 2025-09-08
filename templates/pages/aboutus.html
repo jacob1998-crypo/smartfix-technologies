@@ -1,0 +1,194 @@
+{% extends 'base.html' %}  
+
+{% block title %} | About Us{% endblock %}
+{% load static %}
+{% block content %}
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F2F2F2;
+        }
+
+        .hero-section {
+            background-image: url('{% static 'images/fn.jpg' %}');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .footer-social-link {
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .footer-social-link:hover {
+            transform: scale(1.1);
+        }
+
+        /* Additional styles for Smartfix theme */
+        .bg-dark-text {
+            background-color: #1F2937;
+        }
+        .text-light-text {
+            color: #F9FAFB;
+        }
+        .bg-primary {
+            background-color: #1F2937;
+        }
+        .bg-secondary {
+            background-color: #374151;
+        }
+        .text-accent {
+            color: #FACC15;
+        }
+        .border-accent {
+            border-color: #FACC15;
+        }
+    </style>
+</head>
+<body class="pt-0">
+
+    <!-- Main Content Area - About Page Sections -->
+    <main class="pt-0 flex-grow">
+        <!-- Hero/About Section -->
+        <div class="hero-section text-light-text py-12  relative mt-[-90px] h-[400px] ">
+    
+
+            <div class="container mx-auto px-4 text-center max-w-4xl relative z-10">
+                <h2 class="text-3xl sm:text-4xl font-extrabold mb-4   inline-block pb-2">
+                    About Us
+                </h2>
+
+                <p class="text-lg text-black leading-relaxed italic mb-6">
+                    At Smartfix Technologies, we are passionate about technology and committed to providing expert,
+                     reliable, and affordable repair and sales services.Our mission is to keep you connected and 
+                     productive by ensuring your devices are always in perfect working order.
+                </p>
+
+                <p class="text-lg text-black leading-relaxed italic mb-6">
+                    Whether you need a laptop repair, a new gadget, or professional advice, our team of dedicated experts is here to help. <br>
+                </p>
+            </div>
+        </div>
+                <!-- We Believe In Section -->
+        <div class="we-believe-section py-20   bg-secondary text-light-text text-center">
+            <h3 class="text-2xl sm:text-3xl font-bold mb-12 border-b-2 border-accent inline-block pb-2">
+                What We Do
+            </h3>
+
+            <!-- Grid Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left max-w-4xl mx-auto">
+                <div class="p-6 bg-primary/20 rounded-xl shadow-lg">
+                    <h4 class="font-bold text-accent">Laptop Diagnostics</h4>
+                    <p class="text-gray-300 text-sm">Accurate problem detection and solutions.</p>
+                </div>
+                <div class="p-6 bg-primary/20 rounded-xl shadow-lg">
+                    <h4 class="font-bold text-accent">Laptop Servicing & Maintenance</h4>
+                    <p class="text-gray-300 text-sm">Keep your device running at peak performance.</p>
+                </div>
+                <div class="p-6 bg-primary/20 rounded-xl shadow-lg">
+                    <h4 class="font-bold text-accent">Motherboard Repair & Replacement</h4>
+                    <p class="text-gray-300 text-sm">Selling, repairing, and restoring damaged boards.</p>
+                </div>
+                <div class="p-6 bg-primary/20 rounded-xl shadow-lg">
+                    <h4 class="font-bold text-accent">BIOS Programming</h4>
+                    <p class="text-gray-300 text-sm">Firmware updates and advanced system configuration.</p>
+                </div>
+                <div class="p-6 bg-primary/20 rounded-xl shadow-lg">
+                    <h4 class="font-bold text-accent">Screen Replacement</h4>
+                    <p class="text-gray-300 text-sm">High-quality laptop and tablet screen repairs.</p>
+                </div>
+                <div class="p-6 bg-primary/20 rounded-xl shadow-lg">
+                    <h4 class="font-bold text-accent">Battery Replacement</h4>
+                    <p class="text-gray-300 text-sm">Original and durable power solutions for all models.</p>
+                </div>
+                <div class="p-6 bg-primary/20 rounded-xl shadow-lg">
+                    <h4 class="font-bold text-accent">Keyboard Replacement</h4>
+                    <p class="text-gray-300 text-sm">Fixing non-responsive or damaged keyboards.</p>
+                </div>
+                <div class="p-6 bg-primary/20 rounded-xl shadow-lg">
+                    <h4 class="font-bold text-accent">Hinge & Casing Repair</h4>
+                    <p class="text-gray-300 text-sm">Structural repairs to keep your device sturdy and usable.</p>
+                </div>
+                <div class="p-6 bg-primary/20 rounded-xl shadow-lg">
+                    <h4 class="font-bold text-accent">SSD, RAM & HDD Upgrades</h4>
+                    <p class="text-gray-300 text-sm">Faster performance and expanded storage solutions.</p>
+                </div>
+                <div class="p-6 bg-primary/20 rounded-xl shadow-lg">
+                    <h4 class="font-bold text-accent">Software Installation & Updates</h4>
+                    <p class="text-gray-300 text-sm">OS setup, drivers, antivirus, and applications.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- We Believe In Section -->
+        <div class="we-believe-section py-16 bg-secondary text-light-text text-center">
+            <h3 class="text-2xl sm:text-3xl font-bold mb-12 border-b-2 border-accent inline-block pb-2">
+                Our Core Values
+            </h3>
+
+            <!-- Grid Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left max-w-4xl mx-auto">
+                <div class="p-6 bg-primary/20 rounded-xl shadow-lg">
+                    <h4 class="font-bold text-accent">Expertise & Quality</h4>
+                    <p class="text-gray-300 text-sm">We provide professional-grade repairs and top-quality products.</p>
+                </div>
+                <div class="p-6 bg-primary/20 rounded-xl shadow-lg">
+                    <h4 class="font-bold text-accent">Reliable Service</h4>
+                    <p class="text-gray-300 text-sm">We offer fast, dependable, and trustworthy solutions.</p>
+                </div>
+                <div class="p-6 bg-primary/20 rounded-xl shadow-lg">
+                    <h4 class="font-bold text-accent">Customer Focus</h4>
+                    <p class="text-gray-300 text-sm">Your satisfaction is our top priority, always.</p>
+                </div>
+                <div class="p-6 bg-primary/20 rounded-xl shadow-lg">
+                    <h4 class="font-bold text-accent">Affordability</h4>
+                    <p class="text-gray-300 text-sm">High-quality services and products that won't break the bank.</p>
+                </div>
+            </div>
+                                 <p class="text-gray-300 "><i>At Smartfix Technologies, 
+                    your satisfaction is our top priority—we don’t just fix devices, 
+                    we extend their lifespan and optimize their performance.</i></p>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white p-8 mt-auto">
+        <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div>
+                <h4 class="font-bold text-lg mb-4">Quick Links</h4>
+                <ul>
+                    <li><a href="{% url 'home' %}" class="hover:underline">Home</a></li>
+                    <li><a href="{% url 'services_list' %}" class="hover:underline">Services</a></li>
+                    <li><a href="{% url 'about_us' %}" class="hover:underline">About</a></li>
+                    <li><a href="{% url 'laptops_list' %}" class="hover:underline">Laptops</a></li>
+                    <li><a href="{% url 'accessories_list' %}" class="hover:underline">Accessories</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-lg mb-4">Contact Us</h4>
+                <ul>
+                    <li><i class="fa fa-envelope mr-2"></i>info@smartfix.co.ke</li>
+                    <li><i class="fa fa-phone mr-2"></i>+254 795623377</li>
+                    <li><i class="fa fa-location-arrow mr-2"></i>Nairobi, Kenya</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-lg mb-4">Find Us</h4>
+                <div class="flex space-x-4 text-2xl">
+                    <a href="#" class="hover:text-gray-400"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-gray-400"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="hover:text-gray-400"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="hover:text-gray-400"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="hover:text-gray-400"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-8 pt-4 border-t border-gray-700">
+            &copy; 2025 Smartfix Technologies. All Rights Reserved.
+        </div>
+    </footer>
+</body>
+{% endblock %}

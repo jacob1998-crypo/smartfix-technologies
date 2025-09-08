@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{{ SITE_NAME }}{% endblock %}</title>
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#264259",
+            secondary: "#546A7B",
+            accent: "#CCAD6B",
+            "dark-text": "#1C2E4A",
+            "light-text": "#F2F2F2",
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body class="bg-dark-text font-sans">
+
+
+  {% include 'partials/navbar.html' %}
+
+  <main class="pt-20">
+    {% block content %}{% endblock %}
+  </main>
+
+
+
+</body>
+</html>

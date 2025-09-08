@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Search | Smartfix{% endblock %}
+{% block content %}
+
+<div class="container mx-auto px-4 py-12">
+
+
+  <h2 class="text-2xl font-bold mb-6">Results for "{{ query }}"</h2>
+
+  {% if results %}
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {% for r in results %}
+        <div class="bg-white shadow-md rounded-xl p-4 flex flex-col items-center text-center">
+          {% if r.image %}
+            <img src="{{ r.image }}" alt="{{ r.name }}" class="h-40 w-full object-contain mb-4 rounded-md">
+          {% endif %}
+          <h3 class="text-lg font-semibold">{{ r.name }}</h3>
+          {% if r.details %}
+            <p class="text-gray-600 text-sm mt-2 mb-3">{{ r.details|truncatewords:20 }}</p>
+          {% endif %}
+          {% if r.price %}
+            <p class="text-lg font-bold text-gray-900 mb-3">Ksh {{ r.price|floatformat:0 }}</p>
+          {% endif %}
+          <button onclick="openWhatsappOrder('{{ r.type }}','{{ r.name|escapejs }}')"
+                  class="bg-yellow-500 text-white px-4 py-2 rounded-full hover:bg-yellow-600">
+            Order
+          </button>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="text-gray-600">No results found.</p>
+  {% endif %}
+</div>
+
+<script>
+  const whatsappPhone = "254795623377"; 
+  function openWhatsappOrder(type, name) {
+    const msg = `Hello Smartfix, I'm interested in this ${type}: ${name}.`;
+    window.open(`https://wa.me/${whatsappPhone}?text=${encodeURIComponent(msg)}`, "_blank");
+  }
+</script>
+
+{% endblock %}

@@ -1,0 +1,117 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smartfix Technologies</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      padding-top: 80px;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+
+  <!-- Navbar -->
+  <header class="fixed top-0 w-full z-50 bg-gray-800 text-white shadow-md">
+    <!-- Top row -->
+    <div class="flex justify-between items-center px-4 py-2 md:px-8">
+        
+        <!-- Left: Logo -->
+        <div class="flex items-center space-x-2">
+          <img src="{% static 'images/lg2.png' %}" alt="Logo" class="rounded-full w-12 h-18">
+          <span class="font-bold text-lg"></span>
+        </div>
+
+    
+    <div class="hidden md:flex flex-1 justify-center px-6">
+      <form method="get" action="{% url 'search' %}" class="flex gap-3 w-full max-w-2xl">
+        <input type="text" name="q" value="{{ query }}" placeholder="Search laptops, accessories, services..."
+              class="flex-1 rounded-full px-6 py-2 border border-gray-300 shadow-sm focus:ring-yellow-500 focus:border-yellow-500 text-black" />
+
+        <select name="type" class="rounded-md border px-3 py-2 text-black">
+          <option value="all" {% if filter_type == "all" %}selected{% endif %}>All</option>
+          <option value="laptops" {% if filter_type == "laptops" %}selected{% endif %}>Laptops</option>
+          <option value="accessories" {% if filter_type == "accessories" %}selected{% endif %}>Accessories</option>
+          <option value="services" {% if filter_type == "services" %}selected{% endif %}>Services</option>
+        </select>
+
+        <button type="submit" class="bg-yellow-500 text-white px-6 py-2 rounded-full font-bold hover:bg-yellow-600">
+          Search
+        </button>
+      </form>
+    </div>
+
+
+        <!-- Right: WhatsApp -->
+        <div class="flex items-center space-x-4">
+          <a href="https://wa.me/+254795623377" target="_blank" class="flex items-center space-x-1">
+            <i class="fab fa-whatsapp text-green-500 text-xl"></i>
+            <span class="hidden sm:inline">WhatsApp</span>
+          </a>
+          <!-- Mobile Menu Button -->
+          <button class="md:hidden focus:outline-none" id="menu-btn">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+    </div>
+
+    <!-- Bottom row: Navbar links (desktop) -->
+    <nav class="hidden md:flex justify-center space-x-24 py-2 bg-gray-800 text-sm font-medium">
+      <a href="{% url 'home' %}" class="hover:text-yellow-400">Home</a>
+      <a href="{% url 'services_list' %}" class="hover:text-yellow-400">Services</a>
+      <a href="{% url 'laptops_list' %}" class="hover:text-yellow-400">Laptops</a>
+      <a href="{% url 'accessories_list' %}" class="hover:text-yellow-400">Accessories</a>
+      <a href="{% url 'about_us' %}" class="hover:text-yellow-400">About</a>
+      <a href="{% url 'contact_us' %}" class="hover:text-yellow-400">Contact</a>
+    </nav>
+
+    <!-- Mobile nav -->
+    <nav class="md:hidden hidden flex-col px-4 pb-6 bg-gray-800 text-sm space-y-3" id="mobile-menu">
+      <!-- Mobile search -->
+    <!-- Mobile search -->
+    <div class="w-full mb-3">
+      <form method="get" action="{% url 'search' %}" class="flex flex-col gap-2">
+        <input type="text" name="q" value="{{ query }}" placeholder="Search laptops, accessories, services..."
+              class="rounded-full px-4 py-2 border border-gray-300 shadow-sm focus:ring-yellow-500 focus:border-yellow-500 text-black w-full" />
+
+        <select name="type" class="rounded-md border px-3 py-2 text-black w-full">
+          <option value="all" {% if filter_type == "all" %}selected{% endif %}>All</option>
+          <option value="laptops" {% if filter_type == "laptops" %}selected{% endif %}>Laptops</option>
+          <option value="accessories" {% if filter_type == "accessories" %}selected{% endif %}>Accessories</option>
+          <option value="services" {% if filter_type == "services" %}selected{% endif %}>Services</option>
+        </select>
+
+        <button type="submit" class="bg-yellow-500 text-white px-6 py-2 rounded-full font-bold hover:bg-yellow-600 w-full">
+          Search
+        </button>
+      </form>
+    </div>
+
+      <a href="{% url 'home' %}" class="hover:text-yellow-400 block">Home</a>
+      <a href="{% url 'services_list' %}" class="hover:text-yellow-400 block">Services</a>
+      <a href="{% url 'laptops_list' %}" class="hover:text-yellow-400 block">Laptops</a>
+      <a href="{% url 'accessories_list' %}" class="hover:text-yellow-400 block">Accessories</a>
+      <a href="{% url 'about_us' %}" class="hover:text-yellow-400 block">About</a>
+      <a href="{% url 'contact_us' %}" class="hover:text-yellow-400 block">Contact</a>
+    </nav>
+  </header>
+
+  <script>
+    // Toggle mobile menu
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+
+</body>
+</html>
+
