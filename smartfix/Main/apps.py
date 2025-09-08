@@ -9,10 +9,10 @@ class MainConfig(AppConfig):
         # Import create_admin inside ready() so it runs after Django is ready
         from smartfix.create_admin import create_admin
 
-        # Define a function to run after migrations
+        # Define a function to run after all migrations
         def run_create_admin(sender, **kwargs):
             print("Running create_admin after migrations...")
             create_admin()
 
-        # Connect the function to post_migrate signal
-        post_migrate.connect(run_create_admin, sender=self)
+        # Connect to post_migrate without specifying sender
+        post_migrate.connect(run_create_admin)
