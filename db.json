@@ -1,4 +1,4 @@
-[
+﻿[
 {
     "model": "contenttypes.contenttype",
     "fields": {
@@ -84,7 +84,7 @@
     "pk": 1,
     "fields": {
         "name": "Hp Elitebook 840 G5 Core i5 No Touch 8/256",
-        "specs": "Processor: Intel Core i5 (usually 8th Gen, such as i5-8250U or i5-8350U)\r\nDisplay: 14-inch non-touch display with Full HD resolution (1920�1080)\r\nRAM: 8GB DDR4\r\nStorage: 256GB SSD\r\nGraphics: Integrated Intel UHD Graphics 620\r\nOperating System: Windows 10 Pro (upgradeable)\r\nBattery Life: Around 8-12 hours depending on usage",
+        "specs": "Processor: Intel Core i5 (usually 8th Gen, such as i5-8250U or i5-8350U)\r\nDisplay: 14-inch non-touch display with Full HD resolution (1920╫1080)\r\nRAM: 8GB DDR4\r\nStorage: 256GB SSD\r\nGraphics: Integrated Intel UHD Graphics 620\r\nOperating System: Windows 10 Pro (upgradeable)\r\nBattery Life: Around 8-12 hours depending on usage",
         "price": "30000.00",
         "image": "laptops/laphp.jpg",
         "created_at": "2025-09-06T07:45:31.333Z"
