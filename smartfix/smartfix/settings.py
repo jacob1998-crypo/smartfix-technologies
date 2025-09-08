@@ -134,9 +134,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
-# Auto-create admin when server starts
-try:
-    from .create_admin import create_admin
-    create_admin()
-except Exception as e:
-    print(f"Admin creation skipped: {e}")
+
