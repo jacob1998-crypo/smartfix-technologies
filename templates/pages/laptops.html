@@ -3,6 +3,7 @@
 {% block title %}Services{% endblock %}
 {% block content %}
 
+<script src="https://cdn.tailwindcss.com"></script>
 
     <style>
         body {
@@ -47,26 +48,23 @@
                 <h2 class="text-xl md:text-3xl font-medium mt-2 text-shadow">Browse our selection of quality laptops</h2>
             </div>
         </div>
+        <div class="container mx-auto px-6 py-10">
+         <h2 class="text-2xl font-bold text-center text-light-text mb-8">Available Laptops</h2>
 
-        <!-- Available Laptops Section -->
-        <section class="container mx-auto p-8 my-8">
-            <h2 class="text-3xl font-bold text-white-800 border-b-2 border-yellow-500 pb-2 mb-8">Available Laptops</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {% for laptop in laptops %}
-                    <div class="bg-white rounded-lg shadow-md overflow-hidden transition-shadow hover:shadow-xl">
-                        <img src="{{ laptop.image.url }}" alt="{{ laptop.name }}" class="laptop-image p-4 mx-auto">
-                        <div class="p-6 text-center">
-                            <h3 class="text-xl font-semibold text-gray-800 laptop-name">{{ laptop.name }}</h3>
-                            <p class="text-gray-500 text-sm mt-1 laptop-specs">Details <br>{{ laptop.specs }}</p>
-                            <p class="text-2xl font-bold text-gray-900 mt-4 laptop-price"> Price Ksh {{ laptop.price }}</p>
-                            <a href="#" class="mt-4 inline-block bg-yellow-400 text-gray-900 font-bold py-3 px-6 rounded-full shadow hover:bg-yellow-500 transition-colors" onclick="sendWhatsAppMessage(this)" data-name="{{ laptop.name }}" data-specs="{{ laptop.specs }}" data-price="{{ laptop.price }}">Order Now</a>
-
+                    <div class="bg-white rounded-xl shadow-md p-4 flex flex-col">
+                    <h3 class="text-lg font-semibold text-gray-800">{{ laptop.name }}</h3>
+                    <p class="text-sm text-gray-600 mt-2">{{ laptop.description }}</p>
+                    <p class="text-xl font-bold text-blue-600 mt-auto">Ksh {{ laptop.price }}</p>
+                    <button class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg mt-4">Order Now</button>
                     </div>
-                {% empty %}
+               {% empty %}
                     <p class="text-center text-gray-500 col-span-full">No laptops found.</p>
-                {% endfor %}
+               {% endfor %}
             </div>
-        </section>
+        </div>
+
 
         <!-- Footer Section -->
         <footer class="bg-gray-800 text-white p-8 mt-auto">
