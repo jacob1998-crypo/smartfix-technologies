@@ -54,6 +54,11 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {% for laptop in laptops %}
                     <div class="bg-white rounded-xl shadow-md p-4 flex flex-col">
+                    {% if laptop.image %}
+                        <img src="{{ laptop.image.url }}" alt="{{ laptop.name }}" class="w-full h-48 object-cover rounded-lg mb-4">
+                    {% else %}
+                        <img src="{% static 'images/placeholder.jpg' %}" alt="No image" class="w-full h-48 object-cover rounded-lg mb-4">
+                    {% endif %}
                     <h3 class="text-lg font-semibold text-gray-800">{{ laptop.name }}</h3>
                     <p class="text-sm text-gray-600 mt-2">{{ laptop.description }}</p>
                     <p class="text-xl font-bold text-blue-600 mt-auto">Ksh {{ laptop.price }}</p>
