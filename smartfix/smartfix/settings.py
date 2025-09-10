@@ -14,8 +14,10 @@ from pathlib import Path
 import os
 from decouple import config
 import cloudinary
-import cloudinary_storage
-
+import cloudinary.uploader
+import cloudinary.api
+from cloudinary_storage.storage import MediaCloudinaryStorage
+from cloudinary_storage.storage import RawMediaCloudinaryStorage
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -100,6 +102,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 
 # Password validation
