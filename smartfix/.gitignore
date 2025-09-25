@@ -1,0 +1,18 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# SQLite database (local only)
+*.sqlite3
+
+# Static files (collected, don’t commit)
+staticfiles/
+
+# Environment variables (secrets)
+.env
+
+# VSCode settings (optional, if you use VSCode)
+.vscode/
+
+# MacOS system files (optional, if on Mac)
+.DS_Store

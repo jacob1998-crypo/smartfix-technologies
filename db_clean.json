@@ -1,0 +1,92 @@
+[
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2025-09-05T15:03:12.560Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Laptop Diagnostics",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2025-09-06T07:45:31.359Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "Hp Elitebook 840 G5 Core i5 No Touch 8/256",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$3esj1j1FTXmulxR6q7J7yr$1ZyNZZU8LO2tM3WZL52SwWv72XfgnJCoLwD6bXpDaU8=",
+    "last_login": "2025-09-05T15:01:08.801Z",
+    "is_superuser": true,
+    "username": "Jay",
+    "first_name": "",
+    "last_name": "",
+    "email": "jay@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-09-05T14:59:38.008Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$85OV4g6kiX6BCM2BoA4ZfH$cZmggmDoTbec0rcnFB6/4aCtzlNodcm7Z/vwBs6Ih/Y=",
+    "last_login": null,
+    "is_superuser": true,
+    "username": "Steve",
+    "first_name": "",
+    "last_name": "",
+    "email": "stevemaina@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-09-08T10:53:49.526Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ivzqbeqa2djb90fu23y1aiblt0vobuvs",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pDpQIG6dO8ZCDCDVA0kpV0Z765NutDtf-_9l_BhW4vfOi9-JnEWgzj9bjGkB9cd0D3UW5Op1XWZo9wVedAur434eTncv4MSevnWCcgaGG1EQxl1RhcVgFXODYmDzmYarSEkBcqxskk74IAIFnmCrJx4fwDGEjbj:1uuXw4:bqfBQqN6UrakhBdRTW2AJ5p9niok2x7SFLxPS6IZOI0",
+    "expire_date": "2025-09-19T15:01:08.881Z"
+  }
+},
+{
+  "model": "Main.service",
+  "pk": 1,
+  "fields": {
+    "title": "Laptop Diagnostics",
+    "description": "We provide comprehensive diagnostics to identify hardware and software issues with precision, ensuring a swift and accurate solution. Our services are tailored to optimize performance and longevity, providing peace of mind to our clients.",
+    "image": "image/upload/services/Laptop_Diagnostics.jpg"
+  }
+},
+{
+  "model": "Main.laptop",
+  "pk": 1,
+  "fields": {
+    "name": "Hp Elitebook 840 G5 Core i5 No Touch 8/256",
+    "specs": "Processor: Intel Core i5 (usually 8th Gen, such as i5-8250U or i5-8350U)\r\nDisplay: 14-inch non-touch display with Full HD resolution (1920?1080)\r\nRAM: 8GB DDR4\r\nStorage: 256GB SSD\r\nGraphics: Integrated Intel UHD Graphics 620\r\nOperating System: Windows 10 Pro (upgradeable)\r\nBattery Life: Around 8-12 hours depending on usage",
+    "price": "30000.00",
+    "image": "image/upload/laptops/laphp.jpg",
+    "created_at": "2025-09-06T07:45:31.333Z"
+  }
+}
+]
