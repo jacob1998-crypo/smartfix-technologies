@@ -7,7 +7,7 @@ class MainConfig(AppConfig):
 
     def ready(self):
         # Import create_admin inside ready() so it runs after Django is ready
-        from smartfix.create_admin import create_admin
+        from smartfix.smartfix.createsuperuser import create_admin
 
         # Define a function to run after all migrations
         def run_create_admin(sender, **kwargs):

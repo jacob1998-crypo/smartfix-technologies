@@ -27,10 +27,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config("SECRET_KEY")
-DEBUG = True
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '*').split(',')
-SITE_NAME = "smartfix"
+DEBUG = False
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'smartfix.onrender.com').split(',')
 
+SITE_NAME = "smartfix"
+TIME_ZONE = 'Africa/Nairobi'
 
 
 # Application definition
@@ -101,11 +102,12 @@ WSGI_APPLICATION = 'smartfix.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default=config("DATABASE_URL"),
+        default=os.environ.get('DATABASE_URL'),
         conn_max_age=600,
         ssl_require=True
     )
 }
+
 
 
 
