@@ -9,7 +9,7 @@
             background-color: #f7fafc;
         }
         .header-bg {
-            background-image: url('{% static 'images/ac2.jpg' %}');
+            background-image: url('{% static "images/ac2.jpg" %}');
             background-size: cover;
             background-position: center;
         }
@@ -18,7 +18,7 @@
         }
         .accessory-image {
             width: 100%;
-            height: 200px;
+            height: 150px; /* reduced size */
             object-fit: contain;
             border-radius: 0.5rem;
         }
@@ -26,7 +26,7 @@
             background-color: #FACC15;
             color: #1F2937;
             font-weight: bold;
-            padding: 0.75rem 2rem;
+            padding: 0.5rem 1.5rem;
             border-radius: 9999px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             transition: background-color 0.3s ease;
@@ -35,10 +35,8 @@
             background-color: #EAB308;
         }
     </style>
-</head>
-<body class="pt-24">
-    
 
+<body class="pt-24">
 
     <!-- Main Hero Section -->
     <div class="header-bg relative mt-[-50px] flex items-center justify-center text-center text-white py-24">
@@ -52,15 +50,22 @@
     <!-- Available Accessories Section -->
     <section class="container mx-auto p-8 my-8">
         <h2 class="text-3xl font-bold text-white-800 border-b-2 border-yellow-500 pb-2 mb-8">Available Accessories</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Grid: 2 columns on mobile, 3 on large -->
+        <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {% for accessory in accessories %}
             <div class="bg-white rounded-lg shadow-md overflow-hidden transition-shadow hover:shadow-xl">
                 <img src="{{ accessory.image.url }}" alt="{{ accessory.name }}" class="accessory-image p-4">
-                <div class="p-6 text-center">
-                    <h3 class="text-xl font-semibold text-gray-800 accessory-name">{{ accessory.name }}</h3>
+                <div class="p-4 text-center">
+                    <h3 class="text-lg font-semibold text-gray-800 accessory-name">{{ accessory.name }}</h3>
                     <p class="text-gray-500 text-sm mt-1 accessory-description">{{ accessory.description }}</p>
-                    <p class="text-2xl font-bold text-gray-900 mt-4 accessory-price">Ksh {{ accessory.price }}</p>
-                    <a href="#" class="order-btn inline-block mt-4" onclick="sendWhatsAppMessage(this)" data-name="{{ accessory.name }}" data-description="{{ accessory.description }}" data-price="{{ accessory.price }}">Order Now</a>
+                    <p class="text-xl font-bold text-gray-900 mt-4 accessory-price">Ksh {{ accessory.price }}</p>
+                    <a href="#" class="order-btn inline-block mt-4"
+                       onclick="sendWhatsAppMessage(this)"
+                       data-name="{{ accessory.name }}"
+                       data-description="{{ accessory.description }}"
+                       data-price="{{ accessory.price }}">
+                       Order Now
+                    </a>
                 </div>
             </div>
             {% empty %}
@@ -111,11 +116,10 @@
             const accessoryName = button.getAttribute('data-name');
             const accessoryDescription = button.getAttribute('data-description');
             const accessoryPrice = button.getAttribute('data-price');
-            const phoneNumber = "254748773149"; 
+            const phoneNumber = "254795623377"; 
             const message = `I would like to order the following accessory:\n\n*Accessory:* ${accessoryName}\n*Description:* ${accessoryDescription}\n*Price:* Ksh ${accessoryPrice}`;
 
             const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-            
             window.open(url, '_blank');
         }
     </script>

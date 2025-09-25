@@ -1,8 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}Services{% endblock %}
+{% block title %}Laptops{% endblock %}
 {% block content %}
-
 
     <style>
         body {
@@ -19,8 +18,8 @@
         }
         .laptop-image {
             width: 100%;
-            height: 200px;
-            object-fit: contain; /* Use contain to show the full image */
+            height: 150px; /* reduced size for mobile */
+            object-fit: contain;
             border-radius: 0.5rem;
         }
         .order-btn {
@@ -40,7 +39,7 @@
     <body class="pt-10">
 
         <!-- Main Hero Section -->
-        <div class="header-bg relative mt-[-90px]  flex items-center justify-center text-center text-white py-24">
+        <div class="header-bg relative mt-[-90px] flex items-center justify-center text-center text-white py-24">
             <div class="absolute inset-0 bg-gray-900 bg-opacity-50"></div>
             <div class="relative z-10 p-4">
                 <h1 class="text-3xl md:text-5xl font-bold text-shadow">Find Your Perfect Laptop</h1>
@@ -51,16 +50,23 @@
         <!-- Available Laptops Section -->
         <section class="container mx-auto p-8 my-8">
             <h2 class="text-3xl font-bold text-white-800 border-b-2 border-yellow-500 pb-2 mb-8">Available Laptops</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Changed grid to 2 cols by default -->
+            <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {% for laptop in laptops %}
                     <div class="bg-white rounded-lg shadow-md overflow-hidden transition-shadow hover:shadow-xl">
                         <img src="{{ laptop.image.url }}" alt="{{ laptop.name }}" class="laptop-image p-4 mx-auto">
-                        <div class="p-6 text-center">
-                            <h3 class="text-xl font-semibold text-gray-800 laptop-name">{{ laptop.name }}</h3>
+                        <div class="p-4 text-center">
+                            <h3 class="text-lg font-semibold text-gray-800 laptop-name">{{ laptop.name }}</h3>
                             <p class="text-gray-500 text-sm mt-1 laptop-specs">Details <br>{{ laptop.specs }}</p>
-                            <p class="text-2xl font-bold text-gray-900 mt-4 laptop-price"> Price Ksh {{ laptop.price }}</p>
-                            <a href="#" class="mt-4 inline-block bg-yellow-400 text-gray-900 font-bold py-3 px-6 rounded-full shadow hover:bg-yellow-500 transition-colors" onclick="sendWhatsAppMessage(this)" data-name="{{ laptop.name }}" data-specs="{{ laptop.specs }}" data-price="{{ laptop.price }}">Order Now</a>
-
+                            <p class="text-xl font-bold text-gray-900 mt-4 laptop-price"> Price Ksh {{ laptop.price }}</p>
+                            <a href="#" class="mt-4 inline-block bg-yellow-400 text-gray-900 font-bold py-2 px-4 rounded-full shadow hover:bg-yellow-500 transition-colors"
+                               onclick="sendWhatsAppMessage(this)" 
+                               data-name="{{ laptop.name }}" 
+                               data-specs="{{ laptop.specs }}" 
+                               data-price="{{ laptop.price }}">
+                               Order Now
+                            </a>
+                        </div>
                     </div>
                 {% empty %}
                     <p class="text-center text-gray-500 col-span-full">No laptops found.</p>
@@ -73,13 +79,13 @@
             <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div>
                     <h4 class="font-bold text-lg mb-4">Quick Links</h4>
-                <ul>
-                    <li><a href="{% url 'home' %}" class="hover:underline">Home</a></li>
-                    <li><a href="{% url 'services_list' %}" class="hover:underline">Services</a></li>
-                    <li><a href="{% url 'about_us' %}" class="hover:underline">About</a></li>
-                    <li><a href="{% url 'laptops_list' %}" class="hover:underline">Laptops</a></li>
-                    <li><a href="{% url 'accessories_list' %}" class="hover:underline">Accessories</a></li>
-                </ul>
+                    <ul>
+                        <li><a href="{% url 'home' %}" class="hover:underline">Home</a></li>
+                        <li><a href="{% url 'services_list' %}" class="hover:underline">Services</a></li>
+                        <li><a href="{% url 'about_us' %}" class="hover:underline">About</a></li>
+                        <li><a href="{% url 'laptops_list' %}" class="hover:underline">Laptops</a></li>
+                        <li><a href="{% url 'accessories_list' %}" class="hover:underline">Accessories</a></li>
+                    </ul>
                 </div>
                 <div>
                     <h4 class="font-bold text-lg mb-4">Contact Us</h4>
@@ -110,7 +116,7 @@
                 const laptopName = button.getAttribute('data-name');
                 const laptopSpecs = button.getAttribute('data-specs');
                 const laptopPrice = button.getAttribute('data-price');
-                const phoneNumber = "254748773149"; 
+                const phoneNumber = "254795623377"; 
 
                 const message = `I would like to order the following laptop:\n\n*Laptop:* ${laptopName}\n*Specs:* ${laptopSpecs}\n*Price:* Ksh ${laptopPrice}`;
 
